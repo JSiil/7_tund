@@ -3,6 +3,12 @@
 	//edit
 	require_once("edit_functions.php");
 	
+	//kas kasutaja uuendab andmeid
+	if(isset($_POST["update"])){
+		
+		updateCar($_POST["id"],$_POST["number_plate"],$_POST["color"]);
+	}
+	
 	//id mida muudame
 	if(!isset($_GET["edit"])){
 		
@@ -27,6 +33,8 @@
 ?>
 <h2>Muuda autot</h2>
  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
+ 
+	<input type="hidden" name="id" value="<$_GET["edit"];?>
  
 	<label for="number_plate">Auto nr</label><br>
   	<input id="number_plate" name="number_plate" type="text" value="<?php echo $car_object->number_plate;?>"><br><br>

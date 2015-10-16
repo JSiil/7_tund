@@ -38,5 +38,22 @@
 		$mysqli->close();
 	}
 	
+	function updateCar($id, $number_plate, $color){
 		
+		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
+		
+		$stmt=$mysqli->prepare("UPDATE car_plates SET number_plate=?, color=? WHERE id=?");
+		$stmt->bind_param("ssi",$number_plate, $color, $id);
+		
+		//kas õnnestus salvestada
+		if ($stmt->execute());{
+			//õnnestus
+			echo "õnnestus";
+		}
+		
+	
+		$stmt->close();
+		$mysqli->close();
+	}
+
 ?>
