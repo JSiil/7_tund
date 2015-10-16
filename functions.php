@@ -1,7 +1,7 @@
 <?php
 
 //functions.php
-require_once("../configglobal.php");
+require_once("../../configglobal.php");
 	$database = "if15_jaagsii";
 	
 	//loome uue funktsiooni, et küsida andmebaasist andmeid
